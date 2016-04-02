@@ -52,7 +52,8 @@ struct node* sortedAtoBST(int *arr, int l, int r)
 }
 
 struct node * convert_array_to_bst(int *arr, int len){
-	
-	return sortedAtoBST(arr,0,len);
+	if (arr!=NULL)
+		return sortedAtoBST(arr,0,len);
+	return NULL;
 }
 
