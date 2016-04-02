@@ -63,10 +63,12 @@ int treeSum(struct node *root)
 }
 
 int get_left_subtree_sum(struct node *root){
-	return treeSum(root->left);
+	if (root!=NULL)
+		return treeSum(root->left);
 }
 
 int get_right_subtree_sum(struct node *root){
-	return treeSum(root->right);
+	if (root != NULL)
+		return treeSum(root->right);
 }
 
