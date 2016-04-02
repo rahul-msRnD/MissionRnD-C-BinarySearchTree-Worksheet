@@ -33,9 +33,26 @@ struct node{
 	struct node *right;
 };
 
+struct node * new_node(int data){
+	struct node *temp = (struct node *)malloc(sizeof(struct node));
+	temp->data = data;
+	temp->left = NULL;
+	temp->right = NULL;
+	return temp;
+}
+
+struct node* sortedAtoBST(int *arr, int l, int r)
+{
+	if (l > r) return NULL;
+	int mid = (l + r) / 2;
+	struct node* rt = new_node(arr[mid]);
+	rt->left = sortedAtoBST(arr, l, mid - 1);
+	rt->right = sortedAtoBST(arr, mid + 1, r);
+	return rt;
+}
 
 struct node * convert_array_to_bst(int *arr, int len){
 	
-	return NULL;
+	return sortedAtoBST(arr,0,len);
 }
 
